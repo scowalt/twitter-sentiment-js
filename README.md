@@ -1,1 +1,6 @@
-####twitter-sentiment-js
+##twitter-sentiment-js
+
+####Required
+
+- nTwitter
+- restler
