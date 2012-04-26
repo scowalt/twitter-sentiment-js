@@ -18,6 +18,7 @@ exports.startStream = function(query) {
 			var data = {
 				'tweet' : tweet
 			};
+			//send data to the face parser
 			face.score(data, output.push);
 		});
 		stream.on('end', function(response) {

@@ -5,6 +5,7 @@
 
 var api = require('restler');
 var secrets = require('../prefs/secrets.js');
+var randomness = require('../parsers/randomness.js');
 
 var FACE_API_KEY = secrets.face.api_key;
 var FACE_API_SECRET = secrets.face.api_secret;
@@ -13,7 +14,7 @@ var FACE_API_SECRET = secrets.face.api_secret;
 var requests = [];
 
 exports.score = function(data, callback) {
-	//recursively wait if too many calls
+	//wait if too many calls
 	if(requests.length >= 1) {
 		setTimeout(function() {
 			exports.score(data, callback);
@@ -23,7 +24,7 @@ exports.score = function(data, callback) {
 
 	var r = api.get(makeDetectUrl(data.tweet.user.profile_image_url)).on('complete', function(faceData) {
 		var s;
-		
+
 		//if everything exists
 		if(faceData.photos && faceData.photos[0].tags.length) {
 			var smileInfo = faceData.photos[0].tags[0].attributes.smiling;
@@ -32,10 +33,15 @@ exports.score = function(data, callback) {
 			s = null;
 		}
 		
+		//add score to data
 		data.face = {
 			'rawScore' : s
 		};
-		callback(data);
+		
+		//send data to randomness parser
+		randomness.score(data,callback);
+
+		//remove request from queue
 		requests.remove(r);
 	});
 
