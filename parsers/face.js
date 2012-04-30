@@ -32,14 +32,14 @@ exports.score = function(data, callback) {
 		} else {
 			s = null;
 		}
-		
+
 		//add score to data
 		data.face = {
 			'rawScore' : s
 		};
-		
+
 		//send data to randomness parser
-		randomness.score(data,callback);
+		randomness.score(data, callback);
 
 		//remove request from queue
 		requests.remove(r);

@@ -4,7 +4,7 @@ var rl = require('readline');
 var face = require('./parsers/face.js');
 var secrets = require('./prefs/secrets.js');
 var output = require('./output/push.js');
-var words = require('./parsers/dict.js');
+var words = require('./parsers/words.js');
 var twitter = require('./input/twitter.js');
 
 var i = rl.createInterface(process.stdin, process.stdout, null);
@@ -15,10 +15,6 @@ i.prompt();
 i.on('line', function(a) {
 	a = a.replace(/^\s+|\s+$/g, '');
 	switch(a) {
-		case "dict":
-			var d = words.get('AFINN-111-emo-mult.txt');
-			i.prompt();
-			break;
 		case "start":
 			i.question("Search term: ", function(a) {
 				twitter.startStream(a);
@@ -40,7 +36,7 @@ i.on('line', function(a) {
 
 // //written by Pavel Bakhilau
 // function pausecomp(ms) {
-	// ms += new Date().getTime();
-	// while(new Date() < ms) {
-	// }
+// ms += new Date().getTime();
+// while(new Date() < ms) {
+// }
 // }

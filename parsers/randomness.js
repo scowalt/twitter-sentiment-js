@@ -1,3 +1,5 @@
+var words = require('../parsers/words.js');
+
 exports.score = function(data, callback) {
 	var s;
 
@@ -22,12 +24,10 @@ exports.score = function(data, callback) {
 	}
 
 	//add score to data
-	data.randomness = {
-		'score' : data.randomness.questions + Math.floor((Math.random() * 10) + 1)
-	};
+	data.randomness.score = data.randomness.questions + Math.floor((Math.random() * 10) + 1);
 
-	//send data to be output
-	callback(data);
+	//send data to dictionary
+	words.score(data, callback);
 }
 //returns the array with no alphanumeric characters or spaces
 function removeAlphaNum(arr) {
@@ -40,7 +40,8 @@ function removeAlphaNum(arr) {
 		arr.removeAll(String.fromCharCode(i));
 	}
 	//spaces
-	arr.removeAll(' '); arr;
+	arr.removeAll(' ');
+	return arr;
 }
 
 // adds a remove function to the Array object

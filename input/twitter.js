@@ -2,7 +2,8 @@ var twitter = require('ntwitter');
 var face = require('../parsers/face.js');
 var secrets = require('../prefs/secrets.js');
 var output = require('../output/push.js');
-var words = require('../parsers/dict.js');
+var words = require('../parsers/words.js');
+var randomness = require('../parsers/randomness.js');
 
 //initialize objects
 var twit = new twitter(secrets.twitter);
@@ -18,9 +19,14 @@ exports.startStream = function(query) {
 			var data = {
 				'tweet' : tweet
 			};
-			//send data to the face parser
-			face.score(data, output.push);
+			//console.log("Incoming Time:", data.tweet.created_at);
+			//TODO: send data to the face parser
+			randomness.score(data, output.push);
 		});
+		stream.on('error', function(error) {
+			console.log("Error in twitter module");
+			//console.log(error);
+		})
 		stream.on('end', function(response) {
 			// TODO: Handle a disconnection
 		});
