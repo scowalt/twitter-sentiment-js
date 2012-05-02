@@ -9,14 +9,14 @@ exports.score = function(data, callback) {
 	chars = removeAlphaNum(chars);
 
 	data.randomness = {
-		'exclaimations' : 0,
+		'exclamations' : 0,
 		'questions' : 0,
 		'slashes' : 0
 	};
 
 	for(i in chars) {
 		if(chars[i] == '!')
-			data.randomness.exclaimations += 1;
+			data.randomness.exclamations += 1;
 		if(chars[i] == '?')
 			data.randomness.questions += 1;
 		if(chars[i] == '/')

@@ -36,8 +36,13 @@ exports.score = function(data, callback) {
 //@return <Array:String>
 function parseWords(text) {
 	var words;
-	var rules = prefs.parse;
-	words = text.split(rules.split_regex);
+	words = text.split(prefs.parse.split_regex);
+	for(i in words) {
+		if( typeof (words[i]) == 'string') {
+			words[i] = words[i].trim();
+		}
+	}
+
 	return words;
 }
 
@@ -65,7 +70,7 @@ function parseDict(text) {
 
 //trims extraneous characters
 String.prototype.trim = function() {
-	return this.replace(/^\s+|\s+$/g, '');
+	return this.replace(prefs.parse.trim_regex, '');
 }
 // adds a remove function to the Array object
 Array.prototype.remove = function(obj) {

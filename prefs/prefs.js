@@ -3,4 +3,5 @@ exports.dict = {
 }
 exports.parse = {
 	'split_regex' : /[.,\/ -!?@\*"]/, // .,/-!?@*" or space
+	'trim_regex' : /^[\s'"]+|[\s'"]+$/g //whitespace and quotes
 }

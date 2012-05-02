@@ -35,14 +35,15 @@ exports.score = function(data, callback) {
 
 		//add score to data
 		data.face = {
-			'rawScore' : s
+			'rawScore' : s,
+			'score' : Math.round(s/10.0)
 		};
-
-		//send data to randomness parser
-		randomness.score(data, callback);
 
 		//remove request from queue
 		requests.remove(r);
+
+		//send data to randomness parser
+		randomness.score(data, callback);
 	});
 
 	//add the call to the list
