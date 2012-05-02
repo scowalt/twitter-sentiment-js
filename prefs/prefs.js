@@ -5,3 +5,7 @@ exports.parse = {
 	'split_regex' : /[.,\/ -!?@\*"]/, // .,/-!?@*" or space
 	'trim_regex' : /^[\s'"]+|[\s'"]+$/g //whitespace and quotes
 }
+exports.score = {
+	'max' : 10,
+	'min' : -10
+}
