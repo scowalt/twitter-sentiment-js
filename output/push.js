@@ -6,7 +6,7 @@ exports.push = function(data) {
 		'happiness' : truncate(data.text_sentiment.score),
 		'excitement' : truncate(prefs.score.min / 2 + data.text_sentiment.recognized.length + data.randomness.exclamations + 20 * data.user_info.followers_per_tweet),
 		//TODO Add followers per tweet to excitement
-		'confusion' : truncate(data.randomness.score),
+		'confusion' : truncate(prefs.score.min + 2 * data.randomness.score),
 	};
 	printInfo(data);
 }
