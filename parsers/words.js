@@ -1,4 +1,5 @@
 var prefs = require('../prefs/prefs.js');
+var user_info = require('../parsers/user_info.js');
 
 //a previously generated dictionary
 var dict;
@@ -24,12 +25,12 @@ exports.score = function(data, callback) {
 	}
 	data.text_sentiment = {
 		'score' : (s * m),
-		'recognized_words' : recognized,
-		'unrecognized_words' : unrecognized
+		'recognized' : recognized,
+		'unrecognized' : unrecognized
 	};
 
-	//send to be output
-	callback(data);
+	//send to user_info
+	user_info.get(data, callback);
 }
 //returns all of the words in the tweet
 //@param <String>
