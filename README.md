@@ -2,5 +2,6 @@
 
 ####Required
 
-- [nTwitter] (https://npmjs.org/package/ntwitter)
-- [restler](https://npmjs.org/package/restler)
+- [node.js] (http://nodejs.org/)
+  - [nTwitter] (https://npmjs.org/package/ntwitter)
+  - [restler](https://npmjs.org/package/restler)
