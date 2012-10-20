@@ -3,4 +3,4 @@
 ####Required
 
 - nTwitter
-- restler
+- [restler](https://npmjs.org/package/restler)
