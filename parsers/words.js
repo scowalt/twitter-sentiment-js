@@ -1,5 +1,6 @@
 var prefs = require('../prefs/prefs.js');
 var user_info = require('../parsers/user_info.js');
+var fs = require('fs');
 
 //a previously generated dictionary
 var dict;

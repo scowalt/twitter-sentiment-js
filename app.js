@@ -1,7 +1,6 @@
 //project requirements
 var util = require('util');
 var rl = require('readline');
-var face = require('./parsers/face.js');
 var secrets = require('./prefs/secrets.js');
 var output = require('./output/push.js');
 var words = require('./parsers/words.js');

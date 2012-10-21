@@ -1,5 +1,4 @@
 var twitter = require('ntwitter');
-var face = require('../parsers/face.js');
 var secrets = require('../prefs/secrets.js');
 var output = require('../output/push.js');
 var words = require('../parsers/words.js');
