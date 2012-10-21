@@ -18,8 +18,6 @@ exports.startStream = function(query) {
 			var data = {
 				'tweet' : tweet
 			};
-			//console.log("Incoming Time:", data.tweet.created_at);
-			//TODO: send data to the face parser
 			randomness.score(data, output.push);
 		});
 		stream.on('error', function(error) {

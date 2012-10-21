@@ -3,7 +3,7 @@ var user_info = require('../parsers/user_info.js');
 var fs = require('fs');
 
 //a previously generated dictionary
-var dict;
+var dict; //starts as undefined/false
 
 exports.score = function(data, callback) {
 	//TODO: Do stuff
