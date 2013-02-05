@@ -32,10 +32,3 @@ i.on('line', function(a) {
 			i.prompt();
 	} //switch
 });
-
-// //written by Pavel Bakhilau
-// function pausecomp(ms) {
-// ms += new Date().getTime();
-// while(new Date() < ms) {
-// }
-// }
